@@ -822,7 +822,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.29893684, y: -0.037367105}
@@ -987,6 +987,7 @@ GameObject:
   - component: {fileID: 2090377275}
   - component: {fileID: 2090377276}
   - component: {fileID: 2090377277}
+  - component: {fileID: 2090377278}
   m_Layer: 6
   m_Name: Vacuum
   m_TagString: Untagged
@@ -1108,6 +1109,41 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 28.228855, y: 5.391467}
   m_Size: {x: 57.060894, y: 57.9764}
+  m_Direction: 0
+--- !u!70 &2090377278
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090377273}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.271332, y: 0}
+  m_Size: {x: 36.542717, y: 36.542717}
   m_Direction: 0
 --- !u!1 &2100188067
 GameObject:
