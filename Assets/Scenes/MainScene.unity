@@ -493,7 +493,7 @@ Transform:
   m_GameObject: {fileID: 473734531}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.58, y: 0.483, z: 0}
+  m_LocalPosition: {x: 6.887, y: 2.766, z: 0}
   m_LocalScale: {x: 2.5863, y: 2.5573, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -799,10 +799,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 26.633577
-  m_Height: 53.267155
+  m_Radius: 28.545567
+  m_Height: 57.091133
   m_Direction: 1
-  m_Center: {x: 28.578005, y: 3.1524186, z: 0}
+  m_Center: {x: 26.666014, y: 3.1524186, z: 0}
 --- !u!1839735485 &2090377278
 Tilemap:
   m_ObjectHideFlags: 0
@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  jumpHeight: 5
+  jumpHeight: 6.7
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
