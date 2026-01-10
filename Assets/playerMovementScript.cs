@@ -42,7 +42,7 @@ public class playerMovementScript : MonoBehaviour
         return Physics2D.Raycast(
         origin: transform.position, 
         direction: Vector2.down, 
-        distance: 1.3f, 
+        distance: 1.9f, 
             layerMask: groundLayer);
     }
 }

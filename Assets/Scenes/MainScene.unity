@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00e486cafcc47c4d92b7b6a6eb144ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vacuumSpeed: 0.867
 --- !u!50 &473734533
 Rigidbody2D:
   serializedVersion: 4
@@ -394,7 +395,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &473734534
@@ -606,7 +607,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.0797586
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -631,7 +632,7 @@ Transform:
   m_GameObject: {fileID: 1710449538}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.7, z: -48.145527}
+  m_LocalPosition: {x: 0, y: 5.7, z: -48.145527}
   m_LocalScale: {x: 4.801876, y: 4.801876, z: 4.801876}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -691,9 +692,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2090377274}
   - component: {fileID: 2090377275}
-  - component: {fileID: 2090377278}
-  - component: {fileID: 2090377277}
   - component: {fileID: 2090377276}
+  - component: {fileID: 2090377277}
   m_Layer: 6
   m_Name: Vacuum
   m_TagString: Untagged
@@ -780,13 +780,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7a4bae5bc78db429ae39602ea33126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &2090377277
-CapsuleCollider:
+--- !u!70 &2090377277
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090377273}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -795,52 +797,24 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 28.545567
-  m_Height: 57.091133
-  m_Direction: 1
-  m_Center: {x: 26.666014, y: 3.1524186, z: 0}
---- !u!1839735485 &2090377278
-Tilemap:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090377273}
-  m_Enabled: 1
-  m_Tiles: {}
-  m_AnimatedTiles: {}
-  m_TileAssetArray: []
-  m_TileSpriteArray: []
-  m_TileMatrixArray: []
-  m_TileColorArray: []
-  m_TileObjectToInstantiateArray: []
-  m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0, y: 0, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 0
-  m_TileOrientationMatrix:
-    e00: 1
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 1
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 1
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 28.228855, y: 5.391467}
+  m_Size: {x: 57.060894, y: 57.9764}
+  m_Direction: 0
 --- !u!1 &2100188067
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,18 +868,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00000047683716, y: 0.05315566}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.5, y: 10}
+    oldSize: {x: 3.96, y: 8.4}
     newSize: {x: 9.5, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.5, y: 10}
+  m_Size: {x: 4.538801, y: 8.901449}
   m_EdgeRadius: 0
 --- !u!50 &2100188069
 Rigidbody2D:
@@ -975,7 +949,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2a2980bf5623a204fb0909b415f36fa6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8cc71c704acc9664399d9a94490627c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -995,8 +969,8 @@ Transform:
   m_GameObject: {fileID: 2100188067}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0.0264}
-  m_LocalScale: {x: 0.20825192, y: 0.20825192, z: 0.20825192}
+  m_LocalPosition: {x: -0.31, y: 0.72, z: 0.0264}
+  m_LocalScale: {x: 0.34290156, y: 0.34290156, z: 0.34290156}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1710449541}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,12 @@ using UnityEngine;
 public class VacuumScript : MonoBehaviour
 {
     private bool vacuuming;
-    private Collider2D col;
     public bool Vacuuming { get => vacuuming; set => vacuuming = value; }
 
     // Start is called before the first frame update
     void Start()
     {
-        col = GetComponent<Collider2D>();    
+
     }
 
     // Update is called once per frame
@@ -26,16 +26,43 @@ public class VacuumScript : MonoBehaviour
         {
             vacuuming = false;
         }
-
-        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("asd");   
+        if (vacuuming) {
+            vacuum(collision);
+        }
+        else
+        {
+            noVacuum(collision);
+        }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("jó");
+        noVacuum(other);
     }
+
+
+
+
+    void vacuum(Collider2D collision)
+    {
+        try
+        {
+            VacuumableScript vs = collision.GetComponent<VacuumableScript>();
+            vs.IsBeingVacuumed = true;
+        }
+        catch (Exception){}
+    }
+    void noVacuum(Collider2D collision)
+    {
+        try
+        {
+            VacuumableScript vs = collision.GetComponent<VacuumableScript>();
+            vs.IsBeingVacuumed = false;
+        }
+        catch (Exception){}
+    }
+
 }
