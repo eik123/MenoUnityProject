@@ -26,6 +26,7 @@ public class VacuumableScript : MonoBehaviour
             spriteRenderer.color = Color.cyan;
             transform.position = Vector2.Lerp(transform.position, Vacuum.transform.position, 1f * vacuumSpeed * Time.deltaTime);
             rb.gravityScale = 0;
+            rb.velocity = Vector2.zero;
         }
         else
         {
