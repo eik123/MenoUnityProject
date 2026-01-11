@@ -8,8 +8,10 @@ public class VacuumableScript : MonoBehaviour
     private bool isBeingVacuumed;
     private SpriteRenderer spriteRenderer;
     [SerializeField] float vacuumSpeed;
+    [SerializeField] int id;
     Rigidbody2D rb;
     public bool IsBeingVacuumed { get => isBeingVacuumed; set => isBeingVacuumed = value; }
+    public int Id { get => id; set => id = value; }
 
     // Start is called before the first frame update
     void Start()

@@ -6,12 +6,13 @@ using UnityEngine;
 public class VacuumScript : MonoBehaviour
 {
     private bool vacuuming;
+    private AudioSource audioS;
     public bool Vacuuming { get => vacuuming; set => vacuuming = value; }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        audioS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,10 +22,12 @@ public class VacuumScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             vacuuming = true;
+            audioS.Play();
         }
         else if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             vacuuming = false;
+            audioS.Stop();
         }
     }
 

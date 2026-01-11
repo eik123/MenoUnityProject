@@ -8,10 +8,12 @@ public class playerMovementScript : MonoBehaviour
     [SerializeField] private float jumpHeight;
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D rb;
+    private AudioSource audioS;
 
-    // Start is called before the first frame update
+    // Start is called before the f irst frame update
     void Start()
     {
+        audioS = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -33,6 +35,16 @@ public class playerMovementScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && isGrounded())
         {
             rb.AddForce(new Vector2( 0, 1) * jumpHeight,ForceMode2D.Impulse);
+        }
+
+        //soundfx
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        {
+            audioS.Play();
+        }
+        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            audioS.Stop();
         }
 
     }
