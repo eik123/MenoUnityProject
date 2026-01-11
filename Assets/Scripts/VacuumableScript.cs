@@ -25,14 +25,12 @@ public class VacuumableScript : MonoBehaviour
     void Update()
     {
         if (isBeingVacuumed) {
-            spriteRenderer.color = Color.cyan;
-            transform.position = Vector2.Lerp(transform.position, Vacuum.transform.position, 1f * vacuumSpeed * Time.deltaTime);
+            transform.position = Vector2.LerpUnclamped(transform.position, Vacuum.transform.position, 1f * vacuumSpeed * Time.deltaTime);
             rb.gravityScale = 0;
             rb.velocity = Vector2.zero;
         }
         else
         {
-            spriteRenderer.color = Color.white;
             rb.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
     }

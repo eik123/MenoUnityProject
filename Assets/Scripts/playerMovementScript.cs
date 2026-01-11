@@ -15,6 +15,7 @@ public class playerMovementScript : MonoBehaviour
     {
         audioS = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
+        audioS.Stop();  
     }
 
     // Update is called once per frame

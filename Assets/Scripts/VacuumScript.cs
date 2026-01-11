@@ -13,18 +13,19 @@ public class VacuumScript : MonoBehaviour
     void Start()
     {
         audioS = GetComponent<AudioSource>();
+        audioS.Stop();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             vacuuming = true;
             audioS.Play();
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             vacuuming = false;
             audioS.Stop();
