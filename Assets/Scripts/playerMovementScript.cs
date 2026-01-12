@@ -8,12 +8,16 @@ public class playerMovementScript : MonoBehaviour
     [SerializeField] private float jumpHeight;
     [SerializeField] private LayerMask groundLayer;
 
+    private Animator animator;
     private Rigidbody2D rb;
     private AudioSource audioS;
+    private SpriteRenderer sprite;
 
     // Start is called before the f irst frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         audioS = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         audioS.Stop();  
@@ -23,31 +27,36 @@ public class playerMovementScript : MonoBehaviour
     void Update()
     {
         //move
-        Vector2 input = new Vector2(x: Input.GetAxisRaw("Horizontal"), y: 0);
+        float input = Input.GetAxisRaw("Horizontal");
+        Vector2 movement = new Vector2(input * speed * Time.deltaTime, 0);
 
-        if (input.sqrMagnitude > 1f)
-        {
-            input.Normalize();
+
+        transform.Translate(movement);
+
+        if (input == 1) {
+            audioS.Play();
+            animator.SetBool("walking", true);
+            sprite.flipX = false;
         }
-        transform.position = (Vector2) transform.position 
-            + input
-            * Time.deltaTime
-            * speed;
+        else if (input == -1)
+        {
+            audioS.Play();
+            animator.SetBool("walking", true);
+            sprite.flipX = true;
+        }
+        else
+        {
+            audioS.Stop();
+            animator.SetBool("walking", false);
+        }
+
         //jump
         if (Input.GetKeyDown(KeyCode.W) && isGrounded())
         {
-            rb.AddForce(new Vector2( 0, 1) * jumpHeight,ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, 1) * jumpHeight, ForceMode2D.Impulse);
         }
 
-        //soundfx
-        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-        {
-            audioS.Play();
-        }
-        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-        {
-            audioS.Stop();
-        }
+
 
     }
 

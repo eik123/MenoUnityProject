@@ -24,6 +24,7 @@ public class UniversalScript : MonoBehaviour
         //player sprite flipper
         weaponParent.PointerPosition = pointerpos;
         Vector2 direction = (pointerpos - (Vector2)transform.position).normalized;
+        /*
         if (direction.x < 0)
         {
             sprite.flipX = false;
@@ -33,7 +34,7 @@ public class UniversalScript : MonoBehaviour
             sprite.flipX = true;
 
         }
-
+        */
 
     }
 
